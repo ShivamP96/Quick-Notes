@@ -1,0 +1,32 @@
+body {
+  background-color:light grey;
+}
+
+header {
+  display: flex;
+  font-size: 60px;
+  font-family: 'Questrial', sans-serif;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 48% 48%;
+  grid-template-rows: 48% 48%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+// .read {
+
+// }
+// .item {
+//   flex: 0 48%;
+//   height: 100px;
+//   margin-bottom: 2%;
+// }
+
+footer {
+  // display: flex;
+  align-content: right;
+}
+
