@@ -1,11 +1,12 @@
 body {
   background-color:light grey;
+  margin: 5%;
 }
 
 header {
   display: flex;
   font-size: 60px;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .container {
@@ -16,9 +17,46 @@ header {
   justify-content: space-between;
 }
 
-// .read {
+.read {
+  display: flex;
+  justify-content: center;
+  margin: 5%;
+  border: solid black 3px;
+  margin-top: 5%;
 
-// }
+}
+
+.buy {
+  display: flex;
+  justify-content: center;
+  margin: 5%;
+  border: solid black 3px;
+  margin-top: 5%;
+}
+
+.eat {
+  display: flex;
+  justify-content: center;
+  margin: 5%;
+  border: solid black 3px;
+  margin-top: 5%;
+}
+
+.watch {
+  display: flex;
+  justify-content: center;
+  margin: 5%;
+  border: solid black 3px;
+  margin-top: 5%;
+}
+
+.other {
+  display: flex;
+  justify-content: center;
+  margin: 5%;
+  border: solid black 3px;
+  margin-top: 5%;
+}
 // .item {
 //   flex: 0 48%;
 //   height: 100px;
