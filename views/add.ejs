@@ -10,9 +10,15 @@
   </head>
   <header>A To Do List</header>
 <body>
-    <section class="addTodo">
+
+  <form method="POST" action="/todo" class="addTaskBar">
+    <textarea class="textbox" name="text" placeholder="add"></textarea>
+    <button type="submit" class="btn btn-light">ADD</button>
+  </form>
+
+    <!-- <section class="addTodo">
       <textarea class="textbox" name="text" placeholder="New task"></textarea>
-    </section>
+    </section> -->
 <footer>
 <button type="button" class="btn btn-light">Plus</button>
 </footer>

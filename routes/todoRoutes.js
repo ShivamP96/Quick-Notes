@@ -9,17 +9,20 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/", (req, res) => {
-    db.query(`SELECT * FROM users;`)
-      .then(data => {
-        const users = data.rows;
-        res.json({ users });
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
+
+  router.get("/add", (req,res) => {
+    res.render("add");
+  })
+
+  router.post("/", (req, res) => {
+    console.log("WHAT!!!!????")
+    if (!req.body.text) {
+      res.status(400).json({error: 'invalid request: no data in POST body'});
+      return;
+    }
+    res.render("index")
+  })
+
+
   return router;
 };
