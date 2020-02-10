@@ -1,11 +1,12 @@
 body {
-  background-color:light grey;
+  background: #F5F5F5;
+  margin: 5%;
 }
 
 header {
   display: flex;
   font-size: 60px;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .container {
@@ -14,19 +15,119 @@ header {
   grid-template-rows: 48% 48%;
   flex-wrap: wrap;
   justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
+  font-size: 24px;
 }
 
-// .read {
+.searchBar {
+  display: grid;
+  height: 6em;
+  width: 100%;
+}
 
-// }
-// .item {
-//   flex: 0 48%;
-//   height: 100px;
-//   margin-bottom: 2%;
-// }
+@mixin box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5%;
+  margin-top: 5%;
+  box-shadow: 0 4px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  background-color: white;
+  padding: 10%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.read {
+@include box;
+}
+
+.read:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.read .material-icons {
+  display: flex;
+  justify-content: center;
+  color: blue;
+}
+
+.buy {
+@include box
+}
+
+.buy:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.buy .material-icons {
+  display: flex;
+  justify-content: center;
+  color: green;
+}
+
+.eat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5%;
+  margin-top: 5%;
+  box-shadow: 0 4px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  background-color: white;
+  padding: 10%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.eat:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.eat .material-icons {
+  display: flex;
+  justify-content: center;
+  color: red;
+}
+
+.watch {
+@include box
+}
+
+.watch:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.watch .material-icons {
+  display: flex;
+  justify-content: center;
+  color: purple;
+}
+
+.other {
+@include box;
+}
+
+.other:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.other .material-icons {
+  display: flex;
+  justify-content: center;
+}
 
 footer {
-  // display: flex;
-  align-content: right;
+  // display: grid;
+  // grid-area:  / ;
+  flex-direction: column;
+  background-color:#F5F5F5;
+  padding: 10%;
+  font-family: 'Roboto', sans-serif;
 }
 
+footer .button {
+}
+
+footer:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}

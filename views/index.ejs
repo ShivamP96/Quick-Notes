@@ -1,6 +1,7 @@
 <html>
   <head>
     <title> ToDo App </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lato:100"     rel="stylesheet">
     <link rel="stylesheet" href="/styles/index.css" type="text/css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -8,6 +9,13 @@
     <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
   </head>
   <header>A To Do List</header>
+  <form method="POST" action="/add" class="searchBar">
+    <textarea class="textbox" name="text" placeholder="search"></textarea>
+    <button type="button" class="btn btn-light">Search</button>
+  </form>
+    <!-- <div>
+      <button type="button" class="btn btn-light">Search</button>
+    </div> -->
 <body>
     <section class="container">
         <div class="read">
@@ -54,9 +62,8 @@
     </div>
 </div>
 <footer>
-  <button formaction="addTask" type="button" class="btn btn-light"> <i class="material-icons">
-    add
-    </i>Add New Task </button>
+<button type="button" class="btn btn-light">Plus</button>
 </footer>
 </body>
+</section>
 </html>
