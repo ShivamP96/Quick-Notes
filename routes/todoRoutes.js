@@ -5,36 +5,42 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-const express = require('express');
-const router  = express.Router();
-const analyzeTxt = require("./google.js");
-const classifyTxt = require("./google.js");
+const express = require("express");
+const router = express.Router();
+const wolfram = require("./wolfram.js");
 const entitiesTxt = require("./google.js");
+const keyFilter = require("./keyWords.js")
 
-module.exports = (db) => {
-
-  router.get("/add", (req,res) => {
+module.exports = db => {
+  router.get("/add", (req, res) => {
     res.render("add");
-  })
-
-  // router.get("/", (req, res) => {
-  //   res.render("index");
-  // });
+  });
 
   router.post("/", (req, res) => {
-    console.log("YOU ARE ON THE POST /")
+    console.log("YOU ARE ON THE POST /");
     if (!req.body.text) {
-      res.status(400).json({error: 'invalid request: no data in POST body'});
+      res.status(400).json({ error: "invalid request: no data in POST body" });
       return;
     }
-    console.log("This is our input",req.body.text)
-    console.log(analyzeTxt.analyzeSentimentOfText(req.body.text));
+    console.log("This is our input", req.body.text);
+    // const adjustInput = req.body.text.to
+   //console.log(wolfram.wolf(req.body.text));
 
-    // analyzeTxt.analyzeSentimentOfText(req.body.text)
-    console.log(classifyTxt.classifyTextOfText(req.body.text));
-    //res.render("index")
+   wolfram.wolf(req.body.text)
+   .then(apiResults => {
+     console.log("api results", apiResults);
+     res.json(apiResults);
 
-    console.log(entitiesTxt.analyzingEntities(req.body.text));
-  })
+     keyFilter.filter()
+
+     //INSERT INTO DB
+     Response.redirect("/")
+     return true;
+   })
+
+  });
+
   return router;
 };
+
+
