@@ -1,0 +1,8 @@
+for enviroment variables
+
+export GOOGLE_APPLICATION_CREDENTIALS="/home/shivam/lighthouse/quicknotes-key.json"
+
+export GOOGLE_APPLICATION_CREDENTIALS="/vagrant/Quick-Notes/quicknotes-key.json"
+
+
+
