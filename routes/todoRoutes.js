@@ -9,6 +9,7 @@ const express = require('express');
 const router  = express.Router();
 const analyzeTxt = require("./google.js");
 const classifyTxt = require("./google.js");
+const entitiesTxt = require("./google.js");
 
 module.exports = (db) => {
 
@@ -26,10 +27,14 @@ module.exports = (db) => {
       res.status(400).json({error: 'invalid request: no data in POST body'});
       return;
     }
-    console.log(req.body.text)
+    console.log("This is our input",req.body.text)
     console.log(analyzeTxt.analyzeSentimentOfText(req.body.text));
+
+    // analyzeTxt.analyzeSentimentOfText(req.body.text)
     console.log(classifyTxt.classifyTextOfText(req.body.text));
     //res.render("index")
+
+    console.log(entitiesTxt.analyzingEntities(req.body.text));
   })
   return router;
 };
