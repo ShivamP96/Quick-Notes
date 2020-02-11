@@ -7,15 +7,14 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/styles/modals.css" type="text/css"/>
   </head>
-  <header>A To Do List</header>
+  <header>To Do List</header>
   <form method="POST" action="/add" class="searchBar">
     <textarea class="textbox" name="text" placeholder="search"></textarea>
     <button type="button" class="btn btn-light">Search</button>
   </form>
-    <!-- <div>
-      <button type="button" class="btn btn-light">Search</button>
-    </div> -->
 <body>
     <section class="container">
         <div class="read">
@@ -63,7 +62,9 @@
 </div>
 <footer>
 
-  <form method="GET" action="/todo/add">  <button class="btn btn-light">Plus</button>
+  <form method="GET" action="/todo/add">  <button class="btn btn-light"><i class="material-icons">
+    add
+    </i></button>
    </form>
 
 </footer>
