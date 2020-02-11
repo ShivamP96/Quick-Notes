@@ -5,6 +5,7 @@ body {
 
 header {
   display: flex;
+  justify-content: center;
   font-size: 60px;
   font-family: 'Roboto', sans-serif;
 }
@@ -50,6 +51,14 @@ header {
   display: flex;
   justify-content: center;
   color: blue;
+  font-size: 60;
+}
+
+.read p {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
 }
 
 .buy {
@@ -64,6 +73,14 @@ header {
   display: flex;
   justify-content: center;
   color: green;
+  font-size: 60;
+}
+
+.buy p {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
 }
 
 .eat {
@@ -87,6 +104,14 @@ header {
   display: flex;
   justify-content: center;
   color: red;
+  font-size: 60px;
+}
+
+.eat p {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
 }
 
 .watch {
@@ -101,6 +126,14 @@ header {
   display: flex;
   justify-content: center;
   color: purple;
+  font-size: 60;
+}
+
+.watch p {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  font-size: 30px;
 }
 
 .other {
@@ -112,6 +145,12 @@ header {
 }
 
 .other .material-icons {
+  display: flex;
+  justify-content: center;
+  font-size: 60;
+}
+
+.other p {
   display: flex;
   justify-content: center;
 }
