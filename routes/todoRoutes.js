@@ -7,6 +7,8 @@
 
 const express = require('express');
 const router  = express.Router();
+const analyzeTxt = require("./google.js");
+const classifyTxt = require("./google.js");
 
 module.exports = (db) => {
 
@@ -14,15 +16,20 @@ module.exports = (db) => {
     res.render("add");
   })
 
+  // router.get("/", (req, res) => {
+  //   res.render("index");
+  // });
+
   router.post("/", (req, res) => {
-    console.log("WHAT!!!!????")
+    console.log("YOU ARE ON THE POST /")
     if (!req.body.text) {
       res.status(400).json({error: 'invalid request: no data in POST body'});
       return;
     }
-    res.render("index")
+    console.log(req.body.text)
+    console.log(analyzeTxt.analyzeSentimentOfText(req.body.text));
+    console.log(classifyTxt.classifyTextOfText(req.body.text));
+    //res.render("index")
   })
-
-
   return router;
 };

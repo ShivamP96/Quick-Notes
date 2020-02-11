@@ -19,6 +19,33 @@
 
 const request = require('request');
 
+const wolf = function(title) {
+  // const appID = 'KUUUJK-2WQHQHGYET';
+  // using template literals so we need to input the variables inside and output as JSON
+  let URL = `http://api.wolframalpha.com/v2/query?appid=KUUUJK-2WQHQHGYET&input=${title}&output=json`;
+  request(URL, (error, response, body) => {
+    if (error) {
+      callback(error, null);
+      return;
+    }
+    if (response.statusCode !== 200) {
+      const msg = `Status Code ${response.statusCode} when fetching IP. Response: ${body}`;
+      callback(Error(msg), null);
+      return;
+    }
+    const resultsParse = JSON.parse(body);
+    if (ipAddress.length === 0) {
+      callback("No IP address found, please retry", null);
+    } else {
+      // console.log()
+      callback(null, ipAddress.ip);
+    }
+  });
+}
+let word = "tomato"
+wolf(word);
+
+
 const fetchMyIP = function(callback) {
   const appID = 'KUUUJK-2WQHQHGYET';
   // using template literals so we need to input the variables inside and output as JSON
@@ -37,6 +64,8 @@ const fetchMyIP = function(callback) {
     if (ipAddress.length === 0) {
       callback("No IP address found, please retry", null);
     } else {
+
+      // console.log()
       callback(null, ipAddress.ip);
     }
   });
