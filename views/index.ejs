@@ -7,66 +7,64 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Questrial&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/styles/modals.css" type="text/css"/>
   </head>
-  <header>A To Do List</header>
+  <body>
+  <header>To Do List</header>
   <form method="POST" action="/add" class="searchBar">
     <textarea class="textbox" name="text" placeholder="search"></textarea>
     <button type="button" class="btn btn-light">Search</button>
   </form>
-    <!-- <div>
-      <button type="button" class="btn btn-light">Search</button>
-    </div> -->
-<body>
+  <%- include("partials/task",{title:"Books (to read)", id:"booksModal"}) %>
+  <%- include("partials/task",{title:"Products (to buy)", id:"buyModal"}) %>
+  <%- include("partials/task",{title:"Products (to buy)", id:"eatModal"}) %>
+  <%- include("partials/task",{title:"Restaurants, cafes (to eat)", id:"watchModal"}) %>
+  <%- include("partials/task",{title:"Other", id:"otherModal"}) %>
     <section class="container">
-        <div class="read">
+        <div class="read" data-toggle="modal" data-target="#booksModal">
           <i class="material-icons">
             library_books
             </i>
           <p>Books (To read)</p>
-          <p></p>
-          <p></p>
         </div>
-        <div class="buy">
+        <div class="buy" data-toggle="modal" data-target="#buyModal">
           <i class="material-icons">
             shopping_cart
             </i>
-          <p>Products (To buy)</p>
-          <p></p>
-          <p></p>
+          <p>Products (to buy)</p>
         </div>
-        <div class="eat">
+        <div class="eat" data-toggle="modal" data-target="#eatModal">
           <i class="material-icons">
             fastfood
             </i>
           <p>Restaurants, cafes, etc. (To eat)</p>
-          <p></p>
-          <p></p>
         </div>
-        <div class="watch">
+        <div class="watch" data-toggle="modal" data-target="#watchModal">
           <i class="material-icons">
             tv
             </i>
           <p>Film / Series (To watch)</p>
-          <p></p>
-          <p></p>
         </div>
-        <div class="other">
+        <div class="other" data-toggle="modal" data-target="#otherModal">
           <i class="material-icons">
             more_horiz
             </i>
           <p>Other</p>
-          <p></p>
-          <p></p>
         </div>
       </div>
     </div>
 </div>
 <footer>
-
-  <form method="GET" action="/todo/add">  <button class="btn btn-light">Plus</button>
+  <form method="GET" action="/todo/add">  <button class="btn btn-light"><i class="material-icons">
+    add
+    </i></button>
    </form>
 
 </footer>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </section>
 </html>
