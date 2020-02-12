@@ -16,11 +16,11 @@
     <textarea class="textbox" name="text" placeholder="search"></textarea>
     <button type="button" class="btn btn-light">Search</button>
   </form>
-  <%- include("partials/task",{title:"Books (to read)", id:"booksModal"}) %>
-  <%- include("partials/task",{title:"Products (to buy)", id:"buyModal"}) %>
-  <%- include("partials/task",{title:"Products (to buy)", id:"eatModal"}) %>
-  <%- include("partials/task",{title:"Restaurants, cafes (to eat)", id:"watchModal"}) %>
-  <%- include("partials/task",{title:"Other", id:"otherModal"}) %>
+  <%- include("partials/task",{title:"Books (to read)", tasks: tasks.filter(i => i.category_id === 1), id:"booksModal"}) %>
+  <%- include("partials/task",{title:"Products (to buy)",tasks:tasks.filter(i => i.category_id === 4), id:"buyModal"}) %>
+  <%- include("partials/task",{title:"movies",tasks:tasks.filter(i => i.category_id === 3), id:"eatModal"}) %>
+  <%- include("partials/task",{title:"Restaurants, cafes (to eat)",tasks:tasks.filter(i => i.category_id === 2), id:"watchModal"}) %>
+  <%- include("partials/task",{title:"Other",tasks: tasks.filter(i => i.category_id === 5), id:"otherModal"}) %>
     <section class="container">
         <div class="read" data-toggle="modal" data-target="#booksModal">
           <i class="material-icons">
@@ -60,7 +60,6 @@
     add
     </i></button>
    </form>
-
 </footer>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -68,3 +67,4 @@
 </body>
 </section>
 </html>
+

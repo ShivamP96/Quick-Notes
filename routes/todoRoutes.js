@@ -61,7 +61,6 @@ module.exports = db => {
      //temporary to display on screen
       let queryString = `INSERT into tasks(input, category_id) VALUES (${input},${dbMatch})`
 
-
      //INSERT INTO DB
      //Response.redirect("/")
      return true;
@@ -69,5 +68,6 @@ module.exports = db => {
   });
   return router;
 };
+
 
 
