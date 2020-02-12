@@ -12,10 +12,27 @@ const entitiesTxt = require("./google.js");
 const keyFilter = require("./keyWords.js")
 
 module.exports = db => {
-
-
   router.get("/add", (req, res) => {
     res.render("add");
+  });
+
+  router.get("/", (req, res) => {
+    const task = `
+      SELECT t.id task_id, c.id category_id, t.input, c.title title
+      FROM tasks AS t
+      INNER JOIN categories AS c ON c.id = t.category_id
+    `;
+    db.query(task) //adding queries to new variable, they can all load at the same time
+      .then(data => { //data is the result of query, use data in templateVars
+        let templateVars = {tasks: data.rows}
+        // console.log(templateVars.tasks.length);
+        res.render("index", templateVars)
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message }); //if not pass error message
+      });
   });
 
   router.post("/", (req, res) => {
