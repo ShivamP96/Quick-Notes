@@ -24,9 +24,10 @@ module.exports = db => {
     `;
     db.query(task) //adding queries to new variable, they can all load at the same time
       .then(data => { //data is the result of query, use data in templateVars
+        console.log("red",data)
         let templateVars = {tasks: data.rows}
         // console.log(templateVars.tasks.length);
-        res.render("index", templateVars)
+        res.render("todos/index", templateVars)
       })
       .catch(err => {
         res
