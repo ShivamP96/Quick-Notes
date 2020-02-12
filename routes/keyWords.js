@@ -1,27 +1,21 @@
-const movie = ["Movie"];
+const matchFinder = function (potentialMatch) {
+  const CatKeys = {
+    Movies: new Set(['Movie']),
+    Books: new Set(["Book"]),
+    Products: new Set(["Invention", "Unit","ConsumerProductsPTEClass","ExpandedFood", "Plant"]),
+    restaurants: new Set (["RetailLocationClass", "RetailLocation" ])
+  }
 
-const book = ["Book"];
-
-const food = ["ExpandedFood", "Plant"]
-
-const restaurant = ["RetailLocationClass", "RetailLocation" ]
-
-const categories = ['movie', 'Book', 'Food']
-
-.find // finds first match
-.includes // loop categories
-
-
-const filter = function (results) {
-
-
+  for (const keys in CatKeys) {
+  if(CatKeys[keys].has(potentialMatch)) {
+    // console.log(keys);node
+    // console.log(potentialMatch)
+    return keys;
+    }
+  }
 }
-// element = results[i]
-// index = i
-// array = results
-// thisArg = key
+  // console.log(matchFinder(Movie))
 
-// arr.some(callback(element[, index[, array]])[, thisArg])
+// //4. insert into db but link*** to that category id, input = text
 
-
-module.exports = {filter}
+module.exports = {matchFinder}

@@ -12,34 +12,44 @@ const entitiesTxt = require("./google.js");
 const keyFilter = require("./keyWords.js")
 
 module.exports = db => {
+
+
   router.get("/add", (req, res) => {
     res.render("add");
   });
 
   router.post("/", (req, res) => {
+    const input = req.body.text
     console.log("YOU ARE ON THE POST /");
-    if (!req.body.text) {
+    if (!input) {
       res.status(400).json({ error: "invalid request: no data in POST body" });
       return;
     }
-    console.log("This is our input", req.body.text);
-    // const adjustInput = req.body.text.to
-   //console.log(wolfram.wolf(req.body.text));
-
-   wolfram.wolf(req.body.text)
+    // Promise
+   wolfram.wolf(input)
    .then(apiResults => {
-     console.log("api results", apiResults);
-     res.json(apiResults);
+     const dbMatch = keyFilter.matchFinder(apiResults)
+    db.query(`SELECT id FROM categories WHERE title = '${dbMatch}';`).then(data => {
+      console.log('red',`${dbMatch}`)
+      console.log('blue', apiResults)
+      console.log("====> ",data.rows[0].id)
+      if (data.rows.length) {
+        // console.log(`INSERT INTO tasks (user_id, input, category_id) VALUES (2,'harry potter',${data.rows[0].id})`)
+        db.query(`INSERT INTO tasks (user_id, input, category_id) VALUES (2, '${input}' ,${data.rows[0].id})`).then(data => {
+          res.json({status: "success!"});
+        })
+      }
+    })
+    //     })
+     //temporary to display on screen
+      let queryString = `INSERT into tasks(input, category_id) VALUES (${input},${dbMatch})`
 
-     keyFilter.filter()
 
      //INSERT INTO DB
-     Response.redirect("/")
+     //Response.redirect("/")
      return true;
    })
-
   });
-
   return router;
 };
 
