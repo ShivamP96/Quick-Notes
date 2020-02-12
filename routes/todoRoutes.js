@@ -12,34 +12,40 @@ const entitiesTxt = require("./google.js");
 const keyFilter = require("./keyWords.js")
 
 module.exports = db => {
+  const input = req.body.text
+
   router.get("/add", (req, res) => {
     res.render("add");
   });
 
   router.post("/", (req, res) => {
     console.log("YOU ARE ON THE POST /");
-    if (!req.body.text) {
+    if (!input) {
       res.status(400).json({ error: "invalid request: no data in POST body" });
       return;
     }
-    console.log("This is our input", req.body.text);
-    // const adjustInput = req.body.text.to
-   //console.log(wolfram.wolf(req.body.text));
-
-   wolfram.wolf(req.body.text)
+    // Promise
+   wolfram.wolf(input)
    .then(apiResults => {
-     console.log("api results", apiResults);
-     res.json(apiResults);
+     const dbMatch = keyFilter.matchFinder(apiResults)
 
-     keyFilter.filter()
+     if dbMatch === movie
+     INSERT INTO C (category_id, inpu)
+     category =1
+
+     INSERT
+     SELECT categories WHERE dbmatch === categor
+
+     //temporary to display on screen
+     res.json(apiResults);
+      let queryString = `INSERT into tasks(input, category_id) VALUES (${input},${dbMatch})`
+
 
      //INSERT INTO DB
-     Response.redirect("/")
+     //Response.redirect("/")
      return true;
    })
-
   });
-
   return router;
 };
 
