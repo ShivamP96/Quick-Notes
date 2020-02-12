@@ -36,6 +36,8 @@ module.exports = db => {
       });
   });
 
+
+
   router.post("/", (req, res) => {
     const input = req.body.text
     console.log("YOU ARE ON THE POST /");
