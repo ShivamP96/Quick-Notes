@@ -4,15 +4,18 @@
  *   these routes are mounted onto /users
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
+
 const express = require("express");
 const router = express.Router();
 const wolfram = require("./wolfram.js");
 const entitiesTxt = require("./google.js");
 const keyFilter = require("./keyWords.js")
+
 module.exports = db => {
   router.get("/add", (req, res) => {
     res.render("add");
   });
+
   router.get("/", (req, res) => {
     const task = `
       SELECT t.id task_id, c.id category_id, t.input, c.title title
@@ -31,6 +34,7 @@ module.exports = db => {
           .json({ error: err.message }); //if not pass error message
       });
   });
+
   router.post("/", (req, res) => {
     const input = req.body.text
     console.log("YOU ARE ON THE POST /");
@@ -56,6 +60,7 @@ module.exports = db => {
     //     })
      //temporary to display on screen
       let queryString = `INSERT into tasks(input, category_id) VALUES (${input},${dbMatch})`
+
      //INSERT INTO DB
      //Response.redirect("/")
      return true;
@@ -63,4 +68,6 @@ module.exports = db => {
   });
   return router;
 };
+
+
 
