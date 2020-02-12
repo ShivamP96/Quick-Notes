@@ -22,12 +22,11 @@ module.exports = (db) => {
       SELECT t.id task_id, c.id category_id, t.input, c.title title
       FROM tasks AS t
       INNER JOIN categories AS c ON c.id = t.category_id
-    `; //only select for books
+    `;
     db.query(task) //adding queries to new variable, they can all load at the same time
       .then(data => { //data is the result of query, use data in templateVars
-        // TODO: Group your tasks by category
         let templateVars = {tasks: data.rows}
-        console.log(templateVars.tasks.length);
+        // console.log(templateVars.tasks.length);
         res.render("index", templateVars)
       })
       .catch(err => {
