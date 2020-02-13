@@ -68,7 +68,7 @@ app.post("/register", async(req,res) =>{
   if (existing.rowCount ){
     res.status(400).send('youre already sign up please login ')
   }
-    await db.query(`INSERT into users( name, email, password) VALUES ('test1', '${email}', '${password}')`)
+    await db.query(`INSERT into users( name, email, password) VALUES ('test1', '${email}', '${password}');`)
   res.status(200).send('success')
   }catch(e){
     console.log('red',e)
