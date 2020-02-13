@@ -8,8 +8,7 @@
 const express = require("express");
 const router = express.Router();
 const wolfram = require("./wolfram.js");
-const entitiesTxt = require("./google.js");
-const keyFilter = require("./keyWords.js")
+const keyFilter = require("./keyWords.js");
 
 module.exports = db => {
   router.get("/add", (req, res) => {
@@ -23,54 +22,54 @@ module.exports = db => {
       INNER JOIN categories AS c ON c.id = t.category_id
     `;
     db.query(task) //adding queries to new variable, they can all load at the same time
-      .then(data => { //data is the result of query, use data in templateVars
-        console.log("red",data)
-        let templateVars = {tasks: data.rows}
+      .then(data => {
+        //data is the result of query, use data in templateVars
+        console.log("red", data);
+        let templateVars = { tasks: data.rows };
         // console.log(templateVars.tasks.length);
-        res.render("todos/index", templateVars)
+        res.render("todos/index", templateVars);
       })
       .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message }); //if not pass error message
+        res.status(500).json({ error: err.message }); //if not pass error message
       });
   });
 
-
-
   router.post("/", (req, res) => {
-    const input = req.body.text
+    const input = req.body.text;
     console.log("YOU ARE ON THE POST /");
     if (!input) {
       res.status(400).json({ error: "invalid request: no data in POST body" });
       return;
     }
     // Promise
-   wolfram.wolf(input)
-   .then(apiResults => {
-     const dbMatch = keyFilter.matchFinder(apiResults)
-    db.query(`SELECT id FROM categories WHERE title = '${dbMatch}';`).then(data => {
-      console.log('red',`${dbMatch}`)
-      console.log('blue', apiResults)
-      console.log("====> ",data.rows[0].id)
-      if (data.rows.length) {
-        // console.log(`INSERT INTO tasks (user_id, input, category_id) VALUES (2,'harry potter',${data.rows[0].id})`)
-        db.query(`INSERT INTO tasks (user_id, input, category_id) VALUES (2, '${input}' ,${data.rows[0].id})`).then(data => {
-          res.json({status: "success!"});
-        })
-      }
-    })
-    //     })
-     //temporary to display on screen
-      let queryString = `INSERT into tasks(input, category_id) VALUES (${input},${dbMatch})`
+    wolfram.wolf(input).then(apiResults => {
 
-     //INSERT INTO DB
-     //Response.redirect("/")
-     return true;
-   })
+      const matching = function(apiResults) {
+        console.log("API Results",apiResults);
+        const dbMatch = keyFilter.matchFinder(apiResults);
+
+        return dbMatch;
+      }
+     const test =  matching(apiResults);
+     console.log(test);
+      // const dbMatch = keyFilter.matchFinder(apiResults);
+      // console.log(keyFilter.matchFinder(apiResults))
+     db.query(`SELECT id FROM categories WHERE title = '${test}';`)
+      .then(data => {
+          console.log("data", data);
+          console.log("dbMatch", `${test}`);
+          console.log("apiResults", apiResults);
+          console.log("id ====> ", data.rows[0].id);
+          if (data.rows.length) {
+            db.query(
+              `INSERT INTO tasks (user_id, input, category_id) VALUES (2, '${input}' ,${data.rows[0].id})`
+            ).then(data => {
+              res.json({ status: "success!" });
+            });
+          }
+        });
+      return true;
+    });
   });
   return router;
 };
-
-
-
