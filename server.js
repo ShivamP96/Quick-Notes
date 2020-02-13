@@ -13,7 +13,8 @@ const helpers    = require('./helpers.js')
 
 // PG database client/connection setup
 const { Pool } = require('pg');
-const dbParams = require('./lib/db.js');
+const dbParams = require('./lib/db.js')
+console.log(dbParams)
 const db = new Pool(dbParams);
 db.connect();
 
