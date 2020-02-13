@@ -3,19 +3,30 @@ const matchFinder = function (potentialMatch) {
     Movies: new Set(['Movie']),
     Books: new Set(["Book"]),
     Products: new Set(["Invention", "Unit","ConsumerProductsPTEClass","ExpandedFood", "Plant"]),
-    restaurants: new Set (["RetailLocationClass", "RetailLocation" ])
+    restaurants: new Set (["RetailLocationClass", "RetailLocation", "City" ])
   }
 
-  for (const keys in CatKeys) {
-  if(CatKeys[keys].has(potentialMatch)) {
-    // console.log(keys);node
-    // console.log(potentialMatch)
-    return keys;
+  console.log("Potential Matches",potentialMatch)
+
+  for (let element of potentialMatch) {
+    for (const keys in CatKeys) {
+      if(CatKeys[keys].has(element)) {
+        console.log("Key: ",keys);
+        return keys;
+      }
     }
   }
-}
-  // console.log(matchFinder(Movie))
 
-// //4. insert into db but link*** to that category id, input = text
+
+}
 
 module.exports = {matchFinder}
+
+
+
+//   for (const keys in CatKeys) {
+//   if(CatKeys[keys].has(potentialMatch)) {
+//     return keys;
+//     }
+//   }
+// }

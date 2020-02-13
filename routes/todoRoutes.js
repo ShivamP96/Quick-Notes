@@ -43,10 +43,21 @@ module.exports = db => {
     }
     // Promise
     wolfram.wolf(input).then(apiResults => {
-      const dbMatch = keyFilter.matchFinder(apiResults);
-      db.query(`SELECT id FROM categories WHERE title = '${dbMatch}';`)
+
+      const matching = function(apiResults) {
+        console.log("API Results",apiResults);
+        const dbMatch = keyFilter.matchFinder(apiResults);
+
+        return dbMatch;
+      }
+     const test =  matching(apiResults);
+     console.log(test);
+      // const dbMatch = keyFilter.matchFinder(apiResults);
+      // console.log(keyFilter.matchFinder(apiResults))
+     db.query(`SELECT id FROM categories WHERE title = '${test}';`)
       .then(data => {
-          console.log("dbMatch", `${dbMatch}`);
+          console.log("data", data);
+          console.log("dbMatch", `${test}`);
           console.log("apiResults", apiResults);
           console.log("id ====> ", data.rows[0].id);
           if (data.rows.length) {
@@ -56,8 +67,7 @@ module.exports = db => {
               res.json({ status: "success!" });
             });
           }
-        }
-      );
+        });
       return true;
     });
   });
