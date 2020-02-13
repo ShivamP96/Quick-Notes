@@ -2,14 +2,17 @@ const request = require("request-promise-native");
 
 const wolf = async function(title) {
 
+  // shrek,
   const hasName = (results)=> {
     try {
-      return results.queryresult.assumptions.values[0].name;
+      return results.queryresult.assumptions.values.map((x) => x.name);
+      // return results.queryresult.assumptions.values[0].name;
     } catch (err) {
       return false;
     }
   }
 
+  // casino royale, bombay roti,
   const hasName_subcategory = (results) => {
     try {
       return results.queryresult.assumptions[0].values[0].name;
@@ -34,8 +37,10 @@ const wolf = async function(title) {
   }
 
   const results = async function(resultsParse) {
+    const objectArray = resultsParse.queryresult.assumptions.values.map((x) => x.name );
+    console.log("array of everything in values",objectArray);
     const name = hasName(resultsParse);
-    const subName = hasName_subcategory(resultsParse)
+    const subName = hasName_subcategory(resultsParse);
     const topic = hasTopic(resultsParse);
     const dataType = hasDataTypes(resultsParse);
     if (name) {
