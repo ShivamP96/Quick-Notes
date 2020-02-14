@@ -12,7 +12,6 @@ body {
 }
 
 
-
 .taskBar {
   display: grid;
   justify-content: center;
@@ -33,16 +32,17 @@ body {
   font-family: 'Montserrat', sans-serif;
   border:#fd7e14;
   border-width: 0.5rem;
-  width: 40vw;
+  width: 35vw;
   border-style: solid;
   border-color: solid #343a40;
+  font-size: 100px;
 }
 
 .button {
   display: flex;
   justify-content: center;
   color: #343a40;
-  font-size: 20px;
+  font-size: 120px;
   margin-left: 100px;
 }
 
@@ -50,3 +50,4 @@ footer {
   display: grid;
   justify-content: center;
 }
+
