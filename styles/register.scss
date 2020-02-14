@@ -1,7 +1,7 @@
-.navbar{
-  display: flex;
-  justify-content: center;
-}
+// .navbar{
+//   display: flex;
+//   justify-content: center;
+// }
 
 body{
   padding: 0px;
@@ -26,12 +26,17 @@ body{
 .nav{
   color: antiquewhite;
   background-color: black;
-  display: flex;
+  display: grid;
   justify-content:center;
-  flex-direction: row;
+  grid-column: auto;
   // padding-left: 10px;
   // padding-right: 10px;
   padding: 10px;
+}
+
+img{
+  display: flex;
+  justify-content: center;
 }
 
 footer{
@@ -45,9 +50,10 @@ footer{
 }
 
 .video .content {
-  display: flex;
+  // display: flex;
+  display: grid;
   justify-content: center;
-  // flex-direction: column;
+
   top: 50%;
   position: absolute; /* Position the background text */
   -o-transition: opacity 3s ease-in-out;
@@ -57,8 +63,15 @@ footer{
   color: #f1f1f1; /* Grey text */
   width: 100%; /* Full width */
   padding: 20px; /* Some padding */
+  // visibility: hidden;
+  // opacity: 0;
+  // transition: visibility 0s 5s, opacity 7s linear;
 }
 
+h2{
+  display: flex;
+  justify-content: center;
+}
 // .video {
 //   width:100vw;
 //   height: 100vh;
