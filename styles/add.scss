@@ -29,7 +29,11 @@ body {
   background-color: transparent;
   padding: 10%;
   font-family: 'Montserrat', sans-serif;
-  border: white;
+  border:#fd7e14;
+  border-width: 0.5rem;
+  width: 40vw;
+  border-style: solid;
+  border-color: solid #343a40;
 }
 
 .button {
@@ -38,4 +42,9 @@ body {
   color: #343a40;
   font-size: 20px;
   margin-left: 100px;
+}
+
+footer {
+  display: grid;
+  justify-content: center;
 }
