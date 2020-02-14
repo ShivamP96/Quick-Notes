@@ -1,6 +1,5 @@
-// .navbar{
-//   display: flex;
-//   justify-content: center;
+// html{
+//   max-height: 100vh;
 // }
 
 body{
@@ -61,16 +60,16 @@ footer{
   display: grid;
   justify-content: center;
   align-content: space-between;
-  top: 15%;
+  top: 5%;
   position: absolute; /* Position the background text */
-  -o-transition: opacity 3s ease-in-out;
+  // -o-transition: opacity 3s ease-in-out;
   // bottom: 0; /* At the bottom. Use top:0 to append it to the top */
   // background: rgb(0, 0, 0); /* Fallback color */
   // background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
   color: #f1f1f1; /* Grey text */
   width: 100%; /* Full width */
   padding: 20px; /* Some padding */
-  font-size: 150px;
+  font-size: 30px;
   animation-name: fade;
   animation-duration: 5s;
   animation-direction:alternate ;
@@ -93,7 +92,7 @@ footer{
   color: #f1f1f1; /* Grey text */
   width: 100%; /* Full width */
   padding: 20px; /* Some padding */
-  font-size: 150px;
+  font-size: 30px;
   animation-name: fade;
   animation-duration: 4s;
   animation-direction:alternate ;
@@ -110,7 +109,7 @@ footer{
 }
 
 h1{
-  font-size: 75px;
+  font-size: 50px;
 }
 h2{
   display: flex;
