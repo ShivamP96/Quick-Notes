@@ -27,10 +27,11 @@ body{
   color: antiquewhite;
   background-color: black;
   display: flex;
-  justify-content:space-between;
+  justify-content:center;
   flex-direction: row;
-  padding-left: 10px;
-  padding-right: 10px;
+  // padding-left: 10px;
+  // padding-right: 10px;
+  padding: 10px;
 }
 
 footer{
@@ -46,6 +47,7 @@ footer{
 .video .content {
   display: flex;
   justify-content: center;
+  // flex-direction: column;
   top: 50%;
   position: absolute; /* Position the background text */
   -o-transition: opacity 3s ease-in-out;

@@ -3,7 +3,7 @@ const matchFinder = function (potentialMatch) {
     Movies: new Set(['Movie']),
     Books: new Set(["Book"]),
     Products: new Set(["Invention", "Unit","ConsumerProductsPTEClass" ]),
-    Food: new Set (["RetailLocationClass", "RetailLocation", "City", "ExpandedFood","Plant","Food"])
+    Food: new Set (["RetailLocationClass", "RetailLocation", "ExpandedFood","Plant","Food"])
   }
 
   console.log("Potential Matches",potentialMatch)
