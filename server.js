@@ -53,13 +53,13 @@ app.use("/todo", todoRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
-app.get("/login", (req, res) => {
-  res.render("login");
-});
+// app.get("/login", (req, res) => {
+//   res.render("login");
+// });
 
-app.get("/register", (req, res) => {
-  res.render("register");
-});
+// app.get("/register", (req, res) => {
+//   res.render("register");
+// });
 
 app.post("/register", async(req,res) =>{
   console.log("Hey we connected to /register POST")

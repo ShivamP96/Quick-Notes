@@ -1,0 +1,79 @@
+.navbar{
+  display: flex;
+  justify-content: center;
+}
+
+body{
+  padding: 0px;
+  margin: 0px;
+}
+
+.video{
+  position: relative;
+  margin: 0 auto;
+
+}
+.video .translucent{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  padding: 20px;
+}
+
+.nav{
+  color: antiquewhite;
+  background-color: black;
+  display: flex;
+  justify-content:space-between;
+  flex-direction: row;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+footer{
+  display: flex;
+
+}
+.container {
+  position: relative;
+  max-width: 800px; /* Maximum width */
+  margin: 0 auto; /* Center it */
+}
+
+.video .content {
+  display: flex;
+  justify-content: center;
+  top: 50%;
+  position: absolute; /* Position the background text */
+  -o-transition: opacity 3s ease-in-out;
+  // bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  // background: rgb(0, 0, 0); /* Fallback color */
+  // background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 100%; /* Full width */
+  padding: 20px; /* Some padding */
+}
+
+// .video {
+//   width:100vw;
+//   height: 100vh;
+//   position:relative;
+//   display:inline-block;
+//   margin:10px;
+// }
+// .vid {
+//   position: absolute;
+//   top: 0; left:0;
+//   width: 100%; height: 100%;
+//   z-index: -1;
+// }
+// .content {
+
+//   position:absolute;
+//   top:50%; left:0;
+//   background: black;
+//   color:white;
+// }
