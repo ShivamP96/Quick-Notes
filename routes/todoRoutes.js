@@ -50,7 +50,7 @@ module.exports = db => {
         console.log("dbMatch",dbMatch);
         return dbMatch;
       }
-      
+
     let test;
 
     if (apiResults === undefined || apiResults === []) {
@@ -67,7 +67,6 @@ module.exports = db => {
             db.query(
               `INSERT INTO tasks (user_id, input, category_id) VALUES ($1, $2 ,$3)`, [2, input, data.rows[0].id]
             ).then(data => {
-              // res.json({ status: "success!" });
               res.redirect("/todo")
             });
           }
