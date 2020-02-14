@@ -26,9 +26,12 @@ body{
 .nav{
   color: antiquewhite;
   background-color: black;
-  display: grid;
+  // display: grid;
+  display: flex;
   justify-content:center;
-  grid-column: auto;
+  align-items: center;
+  font-size: 10px;
+  // grid-column: auto;
   // padding-left: 10px;
   // padding-right: 10px;
   padding: 10px;
@@ -47,13 +50,30 @@ footer{
   position: relative;
   max-width: 800px; /* Maximum width */
   margin: 0 auto; /* Center it */
+
+
+}
+
+.visible {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 2s linear;
+}
+
+.visible{
+  animation-name: fade;
+  animation-duration: 5s;
+  animation-direction:alternate ;
+  animation-delay: 5s;
+  animation-iteration-count: 2;
+  opacity: 0;
 }
 
 .video .content {
   // display: flex;
   display: grid;
   justify-content: center;
-
+  align-content: space-between;
   top: 50%;
   position: absolute; /* Position the background text */
   -o-transition: opacity 3s ease-in-out;
@@ -63,10 +83,23 @@ footer{
   color: #f1f1f1; /* Grey text */
   width: 100%; /* Full width */
   padding: 20px; /* Some padding */
+  font-size: 120px;
+  animation-name: fade;
+  animation-duration: 5s;
+  animation-direction:alternate ;
+  animation-delay: 5s;
+  animation-iteration-count: 2;
   // visibility: hidden;
-  // opacity: 0;
+  opacity: 0;
   // transition: visibility 0s 5s, opacity 7s linear;
 }
+
+@keyframes fade{
+  from{opacity:0;}
+  to{opacity: 10;}
+
+}
+
 
 h2{
   display: flex;
