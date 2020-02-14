@@ -53,13 +53,13 @@ app.use("/todo", todoRoutes(db));
 app.get("/", (req, res) => {
   res.render("index");
 });
-app.get("/login", (req, res) => {
-  res.render("login");
-});
+// app.get("/login", (req, res) => {
+//   res.render("login");
+// });
 
-app.get("/register", (req, res) => {
-  res.render("register");
-});
+// app.get("/register", (req, res) => {
+//   res.render("register");
+// });
 
 app.post("/register", async(req,res) =>{
   console.log("Hey we connected to /register POST")
@@ -78,7 +78,7 @@ app.post("/register", async(req,res) =>{
     await db.query(`INSERT into users( name, email, password) VALUES ('test1', '${email}', '${password}');`)
   res.status(200).send('success')
   }catch(e){
-    console.log('red',e)
+    // console.log('red',e)
   }
   // else if(){
   //   console.log(`'${email}'`)
