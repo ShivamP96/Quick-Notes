@@ -2,8 +2,8 @@ const matchFinder = function (potentialMatch) {
   const CatKeys = {
     Movies: new Set(['Movie']),
     Books: new Set(["Book"]),
-    Products: new Set(["Invention", "Unit","ConsumerProductsPTEClass","ExpandedFood", "Plant"]),
-    restaurants: new Set (["RetailLocationClass", "RetailLocation", "City" ])
+    Products: new Set(["Invention", "Unit","ConsumerProductsPTEClass" ]),
+    Food: new Set (["RetailLocationClass", "RetailLocation", "City", "ExpandedFood","Plant","Food"])
   }
 
   console.log("Potential Matches",potentialMatch)
@@ -16,17 +16,7 @@ const matchFinder = function (potentialMatch) {
       }
     }
   }
-
-
 }
 
+
 module.exports = {matchFinder}
-
-
-
-//   for (const keys in CatKeys) {
-//   if(CatKeys[keys].has(potentialMatch)) {
-//     return keys;
-//     }
-//   }
-// }

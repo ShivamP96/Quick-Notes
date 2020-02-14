@@ -24,9 +24,8 @@ module.exports = db => {
     db.query(task) //adding queries to new variable, they can all load at the same time
       .then(data => {
         //data is the result of query, use data in templateVars
-        console.log("red", data);
+        // console.log("red", data);
         let templateVars = { tasks: data.rows };
-        // console.log(templateVars.tasks.length);
         res.render("todos/index", templateVars);
       })
       .catch(err => {
@@ -42,29 +41,34 @@ module.exports = db => {
       return;
     }
     // Promise
-    wolfram.wolf(input).then(apiResults => {
+    wolfram.wolf(input)
+    .then(apiResults => {
 
       const matching = function(apiResults) {
         console.log("API Results",apiResults);
         const dbMatch = keyFilter.matchFinder(apiResults);
-
+        console.log("dbMatch",dbMatch);
         return dbMatch;
       }
-     const test =  matching(apiResults);
-     console.log(test);
-      // const dbMatch = keyFilter.matchFinder(apiResults);
-      // console.log(keyFilter.matchFinder(apiResults))
-     db.query(`SELECT id FROM categories WHERE title = '${test}';`)
+      
+    let test;
+
+    if (apiResults === undefined || apiResults === []) {
+      test = 'Other';
+    } else {
+      test = matching(apiResults);
+    }
+
+
+     console.log("MatchKey",test);
+     db.query(`SELECT id FROM categories WHERE title = $1;`, [test])
       .then(data => {
-          console.log("data", data);
-          console.log("dbMatch", `${test}`);
-          console.log("apiResults", apiResults);
-          console.log("id ====> ", data.rows[0].id);
           if (data.rows.length) {
             db.query(
-              `INSERT INTO tasks (user_id, input, category_id) VALUES (2, '${input}' ,${data.rows[0].id})`
+              `INSERT INTO tasks (user_id, input, category_id) VALUES ($1, $2 ,$3)`, [2, input, data.rows[0].id]
             ).then(data => {
-              res.json({ status: "success!" });
+              // res.json({ status: "success!" });
+              res.redirect("/todo")
             });
           }
         });
