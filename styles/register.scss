@@ -40,6 +40,7 @@ body{
 img{
   display: flex;
   justify-content: center;
+  padding-bottom: 10px;
 }
 
 footer{
@@ -54,27 +55,13 @@ footer{
 
 }
 
-.visible {
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 2s linear;
-}
+
 
 .visible{
-  animation-name: fade;
-  animation-duration: 5s;
-  animation-direction:alternate ;
-  animation-delay: 5s;
-  animation-iteration-count: 2;
-  opacity: 0;
-}
-
-.video .content {
-  // display: flex;
   display: grid;
   justify-content: center;
   align-content: space-between;
-  top: 50%;
+  top: 15%;
   position: absolute; /* Position the background text */
   -o-transition: opacity 3s ease-in-out;
   // bottom: 0; /* At the bottom. Use top:0 to append it to the top */
@@ -83,11 +70,34 @@ footer{
   color: #f1f1f1; /* Grey text */
   width: 100%; /* Full width */
   padding: 20px; /* Some padding */
-  font-size: 120px;
+  font-size: 150px;
   animation-name: fade;
   animation-duration: 5s;
   animation-direction:alternate ;
-  animation-delay: 5s;
+  animation-delay: 3s;
+  animation-iteration-count: 2;
+  opacity: 0;
+}
+
+.content {
+  // display: flex;
+  display: grid;
+  justify-content: center;
+  align-content: space-between;
+  top: 55%;
+  position: absolute; /* Position the background text */
+  // -o-transition: opacity 3s ease-in-out;
+  // bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+  // background: rgb(0, 0, 0); /* Fallback color */
+  // background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 100%; /* Full width */
+  padding: 20px; /* Some padding */
+  font-size: 150px;
+  animation-name: fade;
+  animation-duration: 4s;
+  animation-direction:alternate ;
+  animation-delay: 6s;
   animation-iteration-count: 2;
   // visibility: hidden;
   opacity: 0;
@@ -97,10 +107,11 @@ footer{
 @keyframes fade{
   from{opacity:0;}
   to{opacity: 10;}
-
 }
 
-
+h1{
+  font-size: 75px;
+}
 h2{
   display: flex;
   justify-content: center;
