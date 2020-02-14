@@ -6,7 +6,6 @@ const wolf = async function(title) {
   const hasName = (results)=> {
     try {
       return results.queryresult.assumptions.values.map((x) => x.name);
-      // return results.queryresult.assumptions.values[0].name;
     } catch (err) {
       return false;
     }
@@ -18,7 +17,6 @@ const wolf = async function(title) {
       console.log("we are in subname")
       return results.queryresult.assumptions[0].values.map((x) => x.name);
 
-      // return results.queryresult.assumptions[0].values[0].name;
     } catch (err) {
       return false;
     }
@@ -29,7 +27,6 @@ const wolf = async function(title) {
       console.log("we are in futureTopic");
       return [results.queryresult.futuretopic.topic];
 
-      // return results.queryresult.futuretopic.topic;
     } catch (err) {
       return false;
     }
@@ -73,26 +70,3 @@ const wolf = async function(title) {
 
 
 module.exports = {wolf}
-
-
-
-
-// results =>  parseCategories
-
-
-// function parseCategories(qr) {
-//   if (qr.futuretopic) {
-//     return [qu.futuretopic.topic];
-//   }
-
-//   if (qr.assumptions.length) {
-//     return parseAssumptionsArray(qr.assumptions);
-//   }
-
-//   if (assumptions.type) { // assumptions is an object
-//     // map values to name
-//   }
-
-//   throw new Error("Couldn't parse query result: ", qr);
-
-// }
